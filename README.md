@@ -40,7 +40,7 @@ Ensure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/homepro.git
+   git clone https://github.com/Blard-omu/homepro.git
    cd homepro
    ```
 

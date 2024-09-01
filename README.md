@@ -31,9 +31,9 @@
 
 Ensure you have the following installed:
 
-- **Node.js** (>=14.x)
-- **npm** or **yarn**
-- **Vite** (for fast bundling)
+- Node.js (>=14.x)
+- npm or yarn
+- Vite (for fast bundling)
 
 ### Setup
 

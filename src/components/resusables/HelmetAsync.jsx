@@ -20,7 +20,7 @@ function HelmetWrapper({children}) {
             "@type": "Organization",
             "name": "HomePro Properties",
             "url": "https://homepro-phi.vercel.app",
-            "logo": "/public/home.png",
+            "logo": "https://res.cloudinary.com/djkrhjgjd/image/upload/v1725207059/aylog654gxcs4qv2ykym.png",
             "contactPoint": {
               "@type": "ContactPoint",
               "telephone": "+234708132880957",

@@ -36,7 +36,7 @@ const SearchProperty = () => {
           BEDROOMS
         </label>
         <div className=" filter w-full border-1 border-secondary bg-inherit py-2 text-secondary sm:text-sm rounded-lg">
-          gghrhjjheje
+          4
         </div>
       </div>
       <div className="w-[1px] h-full hidden lg:block"></div>

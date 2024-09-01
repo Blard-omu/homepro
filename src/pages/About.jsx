@@ -1,9 +1,10 @@
 import React from 'react'
+import Jumbotron from '../components/cards/Jumbotron'
 
 const About = () => {
   return (
     <div className='mt-32'>
-      <h1>About</h1>
+      <Jumbotron/>
     </div>
   )
 }

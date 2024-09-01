@@ -7,6 +7,8 @@ import Listings from "./pages/Listings";
 import Menu from "./components/navs/Menu";
 import Blog from "./pages/Blog";
 import HelmetWrapper from "./components/resusables/HelmetAsync";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
 
 const App = () => {
   return (
@@ -19,6 +21,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/listings" element={<Listings />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/register" element={<Register/>} />
         </Routes>
       </BrowserRouter>
     </HelmetWrapper>

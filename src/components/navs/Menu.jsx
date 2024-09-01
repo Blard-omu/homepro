@@ -98,9 +98,9 @@ const Menu = () => {
             </ul>
           </div>
           <div className="flex items-center">
-            <button className="hidden md:block text-primary px-4 py-2 rounded-full border border-primary hover:text-secondary hover:bg-primary font-medium text-sm transition-all ease-in-out duration-300">
+            <Link to="/register" className="hidden md:block text-primary px-4 py-2 rounded-full border border-primary hover:text-secondary hover:bg-primary font-medium text-sm transition-all ease-in-out duration-300">
               Get Started
-            </button>
+            </Link>
             <div
               onClick={onToggleMenu}
               className="text-2xl cursor-pointer text-primary md:hidden"

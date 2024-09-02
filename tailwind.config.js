@@ -36,6 +36,8 @@ export default {
       backgroundColor: {
         "custom-green": "rgba(4, 151, 60, 0.80)",
         "light-green": "rgba(54, 172, 99, 0.20)",
+        "hero": "#F8F3DD",
+
       },
       colors: {
         dark: "#1f1f1f",

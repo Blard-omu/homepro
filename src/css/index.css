@@ -4,8 +4,7 @@
 @tailwind utilities;
 
 *, body{
-    /* background-color: #f8f3dd; */
-    background-color: #F8F3DD;
+    /* background-color: #F8F3DD; */
     font-family: "Nunito", "Helvetica Neue";
     font-size: 1.125rem;
 }

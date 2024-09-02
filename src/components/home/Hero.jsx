@@ -5,8 +5,8 @@ import SearchProperty from "./SearchProperty";
 
 const Hero = () => {
   return (
-    <div className="w-full mt-32">
-      <ComponentWrapper>
+    <div className="w-full py-10 bg-hero mt-16">
+      <ComponentWrapper className="bg-inherit">
         <div className="flex flex-col-reverse lg:flex-row items-center lg:justify-between">
           <div className="w-full  lg:w-[45%] flex flex-col justify-center items-center lg:items-start my-8">
             <h1 className="text-4xl 2xl:text-5xl text-dark font-bold text-center lg:text-left">
@@ -28,7 +28,7 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className=" mt-8">
+        <div className=" my-8 ">
           <SearchProperty />
         </div>
       </ComponentWrapper>

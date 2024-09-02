@@ -16,9 +16,9 @@ const Menu = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 font-inter">
-      <ComponentWrapper>
-        <nav className="flex justify-between items-center h-24 md:h-[7rem] lg:container shadow-lg md:shadow-none">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-hero">
+      <ComponentWrapper className="bg-hero">
+        <nav className="flex bg-inherit justify-between items-center h-24 md:h-[5rem]">
           <Link to="/" className="flex items-baseline text-primary">
             <img className="w-[48px] cursor-pointer" src={Logo} alt="Logo" />
             <b className="text-bold ml-2 font-pacifico">HomePro</b>
@@ -26,10 +26,10 @@ const Menu = () => {
           <div
             onMouseLeave={onCloseMenu}
             className={`duration-500 md:static absolute top-0 left-0 w-full ${
-              menuOpen ? "block top-[100%]" : "hidden top-[12%]"
+              menuOpen ? "block top-[100%]  bg-hero" : "hidden top-[12%]"
             } md:flex md:items-center md:w-auto min-h-fit flex-col md:flex-row`}
           >
-            <ul className="flex md:flex-row flex-col md:items-center lg:gap-[4vw] gap-8 md:gap-5 font-bold text-neutral-grey-300 py-2 pl-4 md:pl-0">
+            <ul className="flex md:flex-row flex-col md:items-center  gap-8 md:gap-5 lg:gap-8 font-bold text-neutral-grey-300 py-2 pl-4 md:pl-0">
               <li>
                 <NavLink
                   to="/"
@@ -105,7 +105,7 @@ const Menu = () => {
               onClick={onToggleMenu}
               className="text-2xl cursor-pointer text-primary md:hidden"
             >
-              {menuOpen ? <IoMdClose /> : <GiHamburgerMenu />}
+              {menuOpen ? <IoMdClose  className="text-3xl"/> : <GiHamburgerMenu className="text-3xl"/>}
             </div>
           </div>
         </nav>

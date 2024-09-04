@@ -1,7 +1,6 @@
-```markdown
+
 # HomePro - Real Estate Platform
 
-<!-- ![HomePro Banner](https://res.cloudinary.com/djkrhjgjd/image/upload/v1725209090/el8ixblt4p4tswloxrqi.png) -->
 <img src="https://res.cloudinary.com/djkrhjgjd/image/upload/v1725209090/el8ixblt4p4tswloxrqi.png" width="100%" >
 
 ## Overview

@@ -17,12 +17,12 @@ const PropertyCard = ({ _id, title, image, price, bed, bath, size }) => {
           <div className=" flex text-[#1F1F1F] justify-between pt-2">
             <div className="flex">
               <img src={ngnIcon} alt="ngn" className="" />
-              <span>{price.toLocaleString("en-us")}</span>
+              <span className="font-semibold">{price.toLocaleString("en-us")}</span>
             </div>
             <img src={heart} alt="vector" className="w-[20px] h-[20px]" />
           </div>
-          <div className="text-[#1F1F1F] weight-[700] text-xl font-semibold py-2">
-            <h3>
+          <div className="text-[#1F1F1F] weight-[700] text-xl font-semibold pt-2">
+            <h3 className="font-bold">
               {title && title.length > 28 ? `${title.slice(0, 25)}...` : title}
             </h3>
           </div>

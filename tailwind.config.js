@@ -37,6 +37,7 @@ export default {
         "custom-green": "rgba(4, 151, 60, 0.80)",
         "light-green": "rgba(54, 172, 99, 0.20)",
         "hero": "#F8F3DD",
+        "light-gray": "hsba(0, 0%, 80%, 0.5)"
 
       },
       colors: {

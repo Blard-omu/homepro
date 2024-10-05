@@ -30,7 +30,7 @@ const SearchProperty = () => {
       <div className="w-[1px] h-full hidden lg:block border border-l-slate-600"></div>
       <div className="w-[13%] bg-dark text-secondary hidden lg:block">
         <label
-          for="options"
+          
           className="block font-semibold text-sm bg-inherit pb-2"
         >
           BEDROOMS
@@ -42,7 +42,7 @@ const SearchProperty = () => {
       <div className="w-[1px] h-full hidden lg:block border border-l-slate-600"></div>
       <div className="w-[13%] bg-dark text-secondary hidden lg:block">
         <label
-          for="options"
+          
           className="block font-semibold text-sm bg-inherit pb-2"
         >
           PROPERTY TYPE
@@ -66,7 +66,7 @@ const SearchProperty = () => {
       <div className="w-[1px] hidden md:block h-full border border-l-slate-600"></div>
       <div className="w-[30%] lg:w-[13%] bg-dark text-secondary  hidden md:block">
         <label
-          for="options"
+          
           className="block font-semibold text-sm bg-inherit pb-2"
         >
           PRICE RANGE

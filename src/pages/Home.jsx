@@ -11,12 +11,12 @@ import Footer from "@/components/layout/Footer";
 
 const Home = () => {
   return (
-    <div>
+    <div className="bg-[#fffffe]">
       <Hero />
-      <div className="my-16">
+      <div className="my-16 ">
       <FeaturedProperty />
       </div>
-      <div className="mt-16">
+      <div className="mt-16 ">
         <HowItWorks />
       </div>
       <div className="mt-16">
@@ -33,9 +33,6 @@ const Home = () => {
       </div>
       <div className="my-16">
         <Cta/>
-      </div>
-      <div className="">
-        <Footer/>
       </div>
     </div>
   );

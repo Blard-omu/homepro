@@ -5,7 +5,7 @@ import ComponentWrapper from "../resusables/ComponentWrapper";
 
 const BlogComponent = () => {
   return (
-    <ComponentWrapper className="my-64">
+    <ComponentWrapper className="my-4">
       <h1 className="text-3xl text-center lg:text-start md:text-4xl font-bold py-8">
         Latest News and Resources
       </h1>

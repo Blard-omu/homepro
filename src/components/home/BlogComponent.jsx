@@ -1,7 +1,7 @@
 import React from "react";
 import { blogDb } from "../db/home/index";
 import BlogCard from "../cards/BlogCard";
-import ComponentWrapper from "../resusables/ComponentWrapper";
+import ComponentWrapper from "../helpers/ComponentWrapper";
 
 const BlogComponent = () => {
   return (

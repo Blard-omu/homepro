@@ -22,5 +22,16 @@
     background-size: cover;
  } 
   
+  /* Hide scrollbar for Chrome, Safari, and Edge */
+.modal-content::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for Firefox */
+  .modal-content {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  
  
   

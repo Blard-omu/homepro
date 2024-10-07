@@ -1,5 +1,5 @@
 import React from 'react';
-import ComponentWrapper from '../resusables/ComponentWrapper';
+import ComponentWrapper from '../helpers/ComponentWrapper';
 import { howitworksDb } from '../db/home/index';
 
 const Howitworks = () => {

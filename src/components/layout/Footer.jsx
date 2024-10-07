@@ -1,5 +1,5 @@
 import React from "react";
-import ComponentWrapper from "../resusables/ComponentWrapper";
+import ComponentWrapper from "../helpers/ComponentWrapper";
 import homepro from "../../assets/icons/home.png";
 import { Link } from "react-router-dom";
 

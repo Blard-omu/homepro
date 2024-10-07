@@ -1,6 +1,6 @@
 import React from "react";
 import { listingsDb } from "../db/home/index";
-import ComponentWrapper from "../resusables/ComponentWrapper";
+import ComponentWrapper from "../helpers/ComponentWrapper";
 import PropertyCard from "../cards/PropertyCard";
 
 const Listings = () => {

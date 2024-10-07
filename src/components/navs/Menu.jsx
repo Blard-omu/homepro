@@ -3,9 +3,9 @@ import { IoMdClose } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Logo from "../../assets/icons/home.png";
 import { Link, NavLink } from "react-router-dom";
-import ComponentWrapper from "../resusables/ComponentWrapper";
+import ComponentWrapper from "../helpers/ComponentWrapper";
 import { useModal } from "../../contexts/ModalContext";
-import Register from "../../pages/auth/Register";
+import Register from "../../pages/auth/AuthForm";
 
 const Menu = () => {
   const [menuOpen, setMenuOpen] = useState(false);

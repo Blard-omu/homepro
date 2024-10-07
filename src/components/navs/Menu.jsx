@@ -3,17 +3,26 @@ import { IoMdClose } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Logo from "../../assets/icons/home.png";
 import { Link, NavLink } from "react-router-dom";
-import ComponentWrapper from "../resusables/ComponentWrapper";
+import ComponentWrapper from "../helpers/ComponentWrapper";
+import { useModal } from "../../contexts/ModalContext";
+import Register from "../../pages/auth/AuthForm";
+
 const Menu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { openModal } = useModal();
 
   const onToggleMenu = () => {
     setMenuOpen((prev) => !prev);
   };
 
-  const onCloseMenu = () => {
+  const closeMenu = () => {
     setMenuOpen(false);
   };
+
+  const handleOpenModal = () => {
+    openModal(<Register />); 
+  };
+  
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-hero">
@@ -24,14 +33,15 @@ const Menu = () => {
             <b className="text-bold ml-2 font-pacifico">HomePro</b>
           </Link>
           <div
-            onMouseLeave={onCloseMenu}
+            onMouseLeave={closeMenu}
             className={`duration-500 md:static absolute top-0 left-0 w-full ${
-              menuOpen ? "block top-[100%]  bg-hero" : "hidden top-[12%]"
+              menuOpen ? "block top-[100%]   bg-hero" : "hidden top-[12%]"
             } md:flex md:items-center md:w-auto min-h-fit flex-col md:flex-row`}
           >
             <ul className="flex md:flex-row flex-col md:items-center  gap-8 md:gap-5 lg:gap-8 font-bold text-neutral-grey-300 py-2 pl-4 md:pl-0">
               <li>
                 <NavLink
+                onClick={closeMenu}
                   to="/"
                   className={({ isActive }) =>
                     `hover:border-b border-b-primary hover:text-primary py-2 transition-all duration-300 ${
@@ -44,6 +54,7 @@ const Menu = () => {
               </li>
               <li>
                 <NavLink
+                onClick={closeMenu}
                   to="/about"
                   className={({ isActive }) =>
                     `hover:border-b border-b-primary hover:text-primary py-2 transition-all duration-300 ${
@@ -56,6 +67,7 @@ const Menu = () => {
               </li>
               <li>
                 <NavLink
+                onClick={closeMenu}
                   to="/listings"
                   className={({ isActive }) =>
                     `hover:border-b border-b-primary hover:text-primary py-2 transition-all duration-300 ${
@@ -68,6 +80,7 @@ const Menu = () => {
               </li>
               <li>
                 <NavLink
+                onClick={closeMenu}
                   to="/blog"
                   className={({ isActive }) =>
                     `hover:border-b border-b-primary hover:text-primary py-2 transition-all duration-300 ${
@@ -80,6 +93,7 @@ const Menu = () => {
               </li>
               <li>
                 <NavLink
+                onClick={closeMenu}
                   to="/contact"
                   className={({ isActive }) =>
                     `hover:border-b border-b-primary hover:text-primary py-2 transition-all duration-300 ${
@@ -91,16 +105,16 @@ const Menu = () => {
                 </NavLink>
               </li>
               <div className="md:hidden flex gap-5 mb-8">
-                <button className="md:block text-primary px-4 py-2 rounded-full border border-primary hover:text-secondary hover:bg-primary font-medium text-sm transition-all ease-in-out duration-300">
+                <button className="md:block text-primary px-4 py-2 rounded-full border border-primary hover:text-secondary hover:bg-primary font-medium text-sm transition-all ease-in-out duration-300" onClick={handleOpenModal}>
                   Get Started
                 </button>
               </div>
             </ul>
           </div>
-          <div className="flex items-center">
-            <Link to="/register" className="hidden md:block text-primary px-4 py-2 rounded-full border border-primary hover:text-secondary hover:bg-primary font-medium text-sm transition-all ease-in-out duration-300">
+          <div className="flex items-center" >
+            <button className="hidden md:block text-primary px-4 py-2 rounded-full border border-primary hover:text-secondary hover:bg-primary font-medium text-sm transition-all ease-in-out duration-300" onClick={handleOpenModal}>
               Get Started
-            </Link>
+            </button>
             <div
               onClick={onToggleMenu}
               className="text-2xl cursor-pointer text-primary md:hidden"

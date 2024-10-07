@@ -4,7 +4,7 @@ import {
   testimonialDb2,
   testimonialDb3,
 } from "../db/home/index";
-import ComponentWrapper from "../resusables/ComponentWrapper";
+import ComponentWrapper from "../helpers/ComponentWrapper";
 
 const TestimonialWrapper = () => {
   return (

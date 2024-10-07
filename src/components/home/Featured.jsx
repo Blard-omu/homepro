@@ -1,7 +1,7 @@
 import React from "react";
 import { featureDb } from "../db/home/index";
 import PropertyCard from "../cards/PropertyCard";
-import ComponentWrapper from "../resusables/ComponentWrapper";
+import ComponentWrapper from "../helpers/ComponentWrapper";
 
 const FeaturedProperty = () => {
   return (

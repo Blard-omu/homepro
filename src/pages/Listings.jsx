@@ -5,7 +5,7 @@ import { featureDb, listingsDb } from "../components/db/home";
 
 const Listings = () => {
   return (
-    <div className="mt-20">
+    <div className="mt-16">
       <Jumbotron
         title="Find the Best Properties"
         subtitle="Discover a wide range of exclusive properties tailored to your unique preferences."

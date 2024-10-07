@@ -7,27 +7,35 @@ import Listings from "./pages/Listings";
 import Menu from "./components/navs/Menu";
 import PropertyDetails from "./components/listing/PropertyDetail";
 import Blog from "./pages/Blog";
-import HelmetWrapper from "./components/resusables/HelmetAsync";
-import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
+import HelmetWrapper from "./components/helpers/HelmetAsync";
+import Footer from "./components/layout/Footer";
+import { ModalProvider } from "./contexts/ModalContext";
+import ModalWrapper from "./contexts/ModalContextWrapper";
+import { ScrollToTop } from "./components/helpers/ScrollToTop";
+import { ToastContainer } from "react-toastify";
+
 
 const App = () => {
   return (
-    <HelmetWrapper>
-      <BrowserRouter>
-        <Menu />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/listings" element={<Listings />} />
-          <Route path="/detail" element={<PropertyDetails />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/register" element={<Register/>} />
-        </Routes>
-      </BrowserRouter>
-    </HelmetWrapper>
+    <ModalProvider>
+      <HelmetWrapper>
+        <BrowserRouter>
+        <ModalWrapper/>
+          <Menu />
+          <ToastContainer autoClose={5000} style={{width: "400px"}} />
+          <ScrollToTop/>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/listings" element={<Listings />} />
+            <Route path="/detail" element={<PropertyDetails />} />
+            <Route path="/blog" element={<Blog />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </HelmetWrapper>
+    </ModalProvider>
   );
 };
 

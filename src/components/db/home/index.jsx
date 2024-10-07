@@ -20,6 +20,10 @@ import testy1 from "../../../assets/images/testy1.png";
 import testy2 from "../../../assets/images/testy2.png";
 import testy3 from "../../../assets/images/testy3.png";
 
+import teams1 from '../../../assets/images/Frame 138.png'
+import teams2 from '../../../assets/images/Frame 141.png'
+import teams3 from '../../../assets/images/Frame 142.png'
+
 export const featureDb = [
   {
     _id: 1,
@@ -272,3 +276,24 @@ export const testimonialDb3 = [
     image: testy2,
   },
 ];
+
+export const teams = [  
+  {
+    _id: 1,
+    name: "Priscilla John",
+    role: "C.E.O",
+    image: teams1
+  },
+  {
+    _id: 2,
+    name: "Gabriel Isaac",
+    role: "C.O.O",
+    image: teams2
+  },
+  {
+    _id: 3,
+    name: "Gina Konsworth",
+    role: "Marketing Manager",
+    image: teams3
+  }
+]

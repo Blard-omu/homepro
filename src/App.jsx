@@ -10,6 +10,7 @@ import HelmetWrapper from "./components/helpers/HelmetAsync";
 import Footer from "./components/layout/Footer";
 import { ModalProvider } from "./contexts/ModalContext";
 import ModalWrapper from "./contexts/ModalContextWrapper";
+import { ScrollToTop } from "./components/helpers/ScrollToTop";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <BrowserRouter>
         <ModalWrapper/>
           <Menu />
+          <ScrollToTop/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

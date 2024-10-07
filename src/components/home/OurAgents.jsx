@@ -1,5 +1,5 @@
 import React from 'react';
-import ComponentWrapper from '../resusables/ComponentWrapper';
+import ComponentWrapper from '../helpers/ComponentWrapper';
 import { agentsDb } from '../db/home/index';
 import bg from "../../assets/icons/Line 6.png"
 

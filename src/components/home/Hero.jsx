@@ -1,6 +1,6 @@
 import React from "react";
 import house from "../../assets/images/Rectangle 1.png";
-import ComponentWrapper from "../resusables/ComponentWrapper";
+import ComponentWrapper from "../helpers/ComponentWrapper";
 import SearchProperty from "./SearchProperty";
 
 const Hero = () => {
@@ -9,7 +9,7 @@ const Hero = () => {
       <ComponentWrapper className="bg-inherit">
         <div className="flex flex-col-reverse lg:flex-row items-center lg:justify-between">
           <div className="w-full  lg:w-[45%] flex flex-col justify-center items-center lg:items-start my-8">
-            <h1 className="text-4xl 2xl:text-5xl text-dark font-bold text-center lg:text-left">
+            <h1 className="text-4xl md:text-[3rem] 2xl:text-[4rem] text-dark font-bold text-center lg:text-left ">
               Find Your Dream <br />
               Home Today!
             </h1>
@@ -23,8 +23,8 @@ const Hero = () => {
               </button>
             </div>
           </div>
-          <div className="lg:w-[639px] flex justify-end items-end">
-            <img src={house} alt="house" className=" max-w-full md:w-[96%] h-[300px]  md:h-[402px]" />
+          <div className="lg:w-[45%] flex justify-end items-end">
+            <img src={house} alt="house" className=" max-w-full md:w-[98%] h-[300px]  md:h-[402px]" />
           </div>
         </div>
         

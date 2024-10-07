@@ -4,12 +4,14 @@ import { signUpDb, loginDb } from "../../components/db/authForm";
 import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useModal } from "../../contexts/ModalContext";
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [loading, setLoading] = useState(false);
   const { login, signup } = useAuth();
   const navigate = useNavigate();
+  const { closeModal } = useModal();
 
   // Toggle between Login and Register
   const toggleForm = () => {
@@ -22,9 +24,13 @@ const AuthForm = () => {
     try {
       if (isLogin) {
         const response = await login(formData.identifier, formData.password);
-        if (response) {
+        console.log(response);
+        
+        if (response.success) {
           toast.success("Login successful! Redirecting...");
           navigate("/"); 
+          closeModal(); 
+
         }
       } else {
         const response = await signup(formData);

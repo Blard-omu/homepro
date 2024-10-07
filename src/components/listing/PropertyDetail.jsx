@@ -110,21 +110,21 @@ const PropertyDetails = () => {
           </h2>
           <ul className="space-y-2 text-base md:text-lg">
             <li className="flex gap-1">
-              <p className="text-2xl"><IoLocationOutline /></p>
+              <p className="text-2xl mt-1"><IoLocationOutline /></p>
               <p><strong>Location and Neighborhood:</strong> Situated in a
               prestigious part of the city... dbdgyfghh</p>
             </li>
             <li className="flex gap-1">
-              <p className="text-2xl"><BsHouseDoor /></p>
+              <p className="text-2xl mt-1"><BsHouseDoor /></p>
               <strong>Interior Features:</strong> Gourmet kitchen with
               top-of-the-line appliances...
             </li>
             <li className="flex gap-1">
-              <p className="text-2xl"><FaTreeCity /></p>              <strong>Exterior Features:</strong> Landscaped garden with a
+              <p className="text-2xl mt-1"><FaTreeCity /></p>              <strong>Exterior Features:</strong> Landscaped garden with a
               private pool and hot tub...
             </li>
             <li className="flex gap-1">
-              <p className="text-2xl"><PiCityLight /></p>              <strong>Community Amenities:</strong> Access to a private
+              <p className="text-2xl mt-1"><PiCityLight /></p>              <strong>Community Amenities:</strong> Access to a private
               clubhouse, 24-hour security...
             </li>
           </ul>

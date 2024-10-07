@@ -28,7 +28,7 @@ const AuthForm = () => {
         
         if (response.success) {
           toast.success("Login successful! Redirecting...");
-          navigate("/"); 
+          navigate("/admin/dashboard"); 
           closeModal(); 
 
         }

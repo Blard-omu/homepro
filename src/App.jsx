@@ -12,23 +12,33 @@ import { ModalProvider } from "./contexts/ModalContext";
 import ModalWrapper from "./contexts/ModalContextWrapper";
 import { ScrollToTop } from "./components/helpers/ScrollToTop";
 import { ToastContainer } from "react-toastify";
-
+import AdminLayout from "./components/dashboard/admin/AdminLayout";
+import Dashboard from "./pages/admin/Dashboard";
+import Agents from "./pages/admin/Agents";
+import Properties from "./pages/admin/Properties";
+import Settings from "./pages/admin/Settings";
 
 const App = () => {
   return (
     <ModalProvider>
       <HelmetWrapper>
         <BrowserRouter>
-        <ModalWrapper/>
+          <ModalWrapper />
           <Menu />
-          <ToastContainer autoClose={5000} style={{width: "400px"}} />
-          <ScrollToTop/>
+          <ToastContainer autoClose={5000} style={{ width: "400px" }} />
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/listings" element={<Listings />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="agents" element={<Agents />} />
+              <Route path="settings" element={<Settings />} />
+              <Route path="properties" element={<Properties />} />
+            </Route>
           </Routes>
           <Footer />
         </BrowserRouter>

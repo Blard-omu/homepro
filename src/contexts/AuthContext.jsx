@@ -3,7 +3,6 @@ import { useState, createContext, useContext, useEffect } from "react";
 import axios from "axios";
 
 
-
 const AuthContext = createContext();
 
 // Provider functions
@@ -49,13 +48,12 @@ const AuthProvider = ({ children }) => {
         localStorage.setItem("auth", JSON.stringify(data));
         return result;
       } else {
-        // Login failed
         return false;
       }
     } catch (error) {
       console.error("Login error:", error.message);
-      if (error?.response && error?.response?.data && error?.response?.data?.error) {
-        throw new Error(error?.response?.data?.error); 
+      if (error?.response && error?.response?.data && error?.response?.data?.message) {
+        throw new Error(error?.response?.data?.message); 
       } else {
         throw new Error("An error occurred while logging in");
       }
@@ -65,9 +63,9 @@ const AuthProvider = ({ children }) => {
   // Signup function
   const signup = async (formData) => {
     try {
-      const { data } = await axios.post("/auth/register", formData, {
+      const { data } = await axios.post("/auth/register", {...formData}, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          'Content-Type': 'application/json',
         },
       });
 
@@ -84,8 +82,8 @@ const AuthProvider = ({ children }) => {
       return data;
     } catch (error) {
       console.error("Signup Error:", error.message);
-      if (error?.response && error?.response?.data && error?.response?.data?.error) {
-        const msg = error?.response?.data?.error
+      if (error?.response && error?.response?.data && error?.response?.data?.message) {
+        const msg = error?.response?.data?.message
         throw new Error(msg); 
       } 
     }

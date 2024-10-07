@@ -1,39 +1,9 @@
-// import React, { useState } from "react";
-// import FormCard from "../../components/cards/FormCard";
-// import { signUpDb, loginDb } from "../../components/db/authForm"; 
-
-// const AuthForm = () => {
-//   const [isLogin, setIsLogin] = useState(false); 
-
-//   const toggleForm = () => {
-//     setIsLogin(!isLogin);
-//   };
-
-//   return (
-//     <div className="">
-//       <FormCard
-//         inputData={isLogin ? loginDb : signUpDb}
-//         title={isLogin ? "WELCOME BACK" : "REGISTER!"}
-//         subtitle={isLogin ? "Don't have an account?" : "Already have an account?"}
-//         link={isLogin ? "register" : "login"}
-//         toPage={isLogin ? "Sign Up" : "Login"}
-//         isLoginBtn={isLogin}
-//         toggleForm={toggleForm}
-//       />
-//     </div>
-//   );
-// };
-
-// export default AuthForm;
-
-
 import React, { useState } from "react";
 import FormCard from "../../components/cards/FormCard";
 import { signUpDb, loginDb } from "../../components/db/authForm";
 import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -54,17 +24,17 @@ const AuthForm = () => {
         const response = await login(formData.identifier, formData.password);
         if (response) {
           toast.success("Login successful! Redirecting...");
-          navigate("/dashboard"); 
+          navigate("/"); 
         }
       } else {
         const response = await signup(formData);
         if (response) {
           toast.success("Signup successful! Redirecting...");
-          navigate("/dashboard");
+          toggleForm();
         }
       }
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       toast.error(error.message);
     } finally {
       setLoading(false);
@@ -73,7 +43,6 @@ const AuthForm = () => {
 
   return (
     <div className="">
-      <ToastContainer />
       <FormCard
         inputData={isLogin ? loginDb : signUpDb}
         title={isLogin ? "WELCOME BACK" : "REGISTER!"}

@@ -13,7 +13,7 @@ const GoogleBtn = ({isLogin=true}) => {
             
               <button className="w-full flex justify-center items-center text-dark py-3 hover:bg-secondary  hover:text-primary hover:border-primary  rounded-2xl border border-slate-400">
               <img src={icon} alt="google-icon"  className='w-6 h-6 mr-2'/>
-                {isLogin ? "Continue with google" : "signUp with google"}
+                {isLogin ? "Continue with google" : "sign up with google"}
               </button>
             </div>
     </div>

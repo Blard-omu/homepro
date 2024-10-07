@@ -11,6 +11,8 @@ import Footer from "./components/layout/Footer";
 import { ModalProvider } from "./contexts/ModalContext";
 import ModalWrapper from "./contexts/ModalContextWrapper";
 import { ScrollToTop } from "./components/helpers/ScrollToTop";
+import { ToastContainer } from "react-toastify";
+
 
 const App = () => {
   return (
@@ -19,6 +21,7 @@ const App = () => {
         <BrowserRouter>
         <ModalWrapper/>
           <Menu />
+          <ToastContainer autoClose={5000} style={{width: "400px"}} />
           <ScrollToTop/>
           <Routes>
             <Route path="/" element={<Home />} />

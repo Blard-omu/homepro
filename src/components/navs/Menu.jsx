@@ -6,10 +6,13 @@ import { Link, NavLink } from "react-router-dom";
 import ComponentWrapper from "../helpers/ComponentWrapper";
 import { useModal } from "../../contexts/ModalContext";
 import Register from "../../pages/auth/AuthForm";
+import { useAuth } from "../../contexts/AuthContext";
+import UserAvatar from "../helpers/UserAvatar";
 
 const Menu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { openModal } = useModal();
+  const { auth, logout } = useAuth();
 
   const onToggleMenu = () => {
     setMenuOpen((prev) => !prev);
@@ -20,9 +23,8 @@ const Menu = () => {
   };
 
   const handleOpenModal = () => {
-    openModal(<Register />); 
+    openModal(<Register />);
   };
-  
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-hero">
@@ -41,11 +43,13 @@ const Menu = () => {
             <ul className="flex md:flex-row flex-col md:items-center  gap-8 md:gap-5 lg:gap-8 font-bold text-neutral-grey-300 py-2 pl-4 md:pl-0">
               <li>
                 <NavLink
-                onClick={closeMenu}
+                  onClick={closeMenu}
                   to="/"
                   className={({ isActive }) =>
                     `hover:border-b border-b-primary hover:text-primary py-2 transition-all duration-300 ${
-                      isActive ? "text-primary border-b-primary border-b-2" : "text-dark"
+                      isActive
+                        ? "text-primary border-b-primary border-b-2"
+                        : "text-dark"
                     }`
                   }
                 >
@@ -54,11 +58,13 @@ const Menu = () => {
               </li>
               <li>
                 <NavLink
-                onClick={closeMenu}
+                  onClick={closeMenu}
                   to="/about"
                   className={({ isActive }) =>
                     `hover:border-b border-b-primary hover:text-primary py-2 transition-all duration-300 ${
-                      isActive ? "text-primary border-b-primary border-b-2" : "text-dark"
+                      isActive
+                        ? "text-primary border-b-primary border-b-2"
+                        : "text-dark"
                     }`
                   }
                 >
@@ -67,11 +73,13 @@ const Menu = () => {
               </li>
               <li>
                 <NavLink
-                onClick={closeMenu}
+                  onClick={closeMenu}
                   to="/listings"
                   className={({ isActive }) =>
                     `hover:border-b border-b-primary hover:text-primary py-2 transition-all duration-300 ${
-                      isActive ? "text-primary border-b-primary border-b-2" : "text-dark"
+                      isActive
+                        ? "text-primary border-b-primary border-b-2"
+                        : "text-dark"
                     }`
                   }
                 >
@@ -80,11 +88,13 @@ const Menu = () => {
               </li>
               <li>
                 <NavLink
-                onClick={closeMenu}
+                  onClick={closeMenu}
                   to="/blog"
                   className={({ isActive }) =>
                     `hover:border-b border-b-primary hover:text-primary py-2 transition-all duration-300 ${
-                      isActive ? "text-primary border-b-primary border-b-2" : "text-dark"
+                      isActive
+                        ? "text-primary border-b-primary border-b-2"
+                        : "text-dark"
                     }`
                   }
                 >
@@ -93,11 +103,13 @@ const Menu = () => {
               </li>
               <li>
                 <NavLink
-                onClick={closeMenu}
+                  onClick={closeMenu}
                   to="/contact"
                   className={({ isActive }) =>
                     `hover:border-b border-b-primary hover:text-primary py-2 transition-all duration-300 ${
-                      isActive ? "text-primary border-b-primary border-b-2" : "text-dark"
+                      isActive
+                        ? "text-primary border-b-primary border-b-2"
+                        : "text-dark"
                     }`
                   }
                 >
@@ -105,21 +117,35 @@ const Menu = () => {
                 </NavLink>
               </li>
               <div className="md:hidden flex gap-5 mb-8">
-                <button className="md:block text-primary px-4 py-2 rounded-full border border-primary hover:text-secondary hover:bg-primary font-medium text-sm transition-all ease-in-out duration-300" onClick={handleOpenModal}>
+                <button
+                  className="md:block text-primary px-4 py-2 rounded-full border border-primary hover:text-secondary hover:bg-primary font-medium text-sm transition-all ease-in-out duration-300"
+                  onClick={handleOpenModal}
+                >
                   Get Started
                 </button>
               </div>
             </ul>
           </div>
-          <div className="flex items-center" >
-            <button className="hidden md:block text-primary px-4 py-2 rounded-full border border-primary hover:text-secondary hover:bg-primary font-medium text-sm transition-all ease-in-out duration-300" onClick={handleOpenModal}>
-              Get Started
-            </button>
+          <div className="flex items-center">
+            {auth && auth.user ? (
+              <UserAvatar />
+            ) : (
+              <button
+                className="hidden md:block text-primary px-4 py-2 rounded-full border border-primary hover:text-secondary hover:bg-primary font-medium text-sm transition-all ease-in-out duration-300"
+                onClick={handleOpenModal}
+              >
+                Get Started
+              </button>
+            )}
             <div
               onClick={onToggleMenu}
               className="text-2xl cursor-pointer text-primary md:hidden"
             >
-              {menuOpen ? <IoMdClose  className="text-3xl"/> : <GiHamburgerMenu className="text-3xl"/>}
+              {menuOpen ? (
+                <IoMdClose className="text-3xl" />
+              ) : (
+                <GiHamburgerMenu className="text-3xl" />
+              )}
             </div>
           </div>
         </nav>

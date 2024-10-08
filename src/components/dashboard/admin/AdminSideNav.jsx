@@ -8,25 +8,28 @@ const AdminSideNav = () => {
       <nav>
         <ul>
           <li className="p-4 hover:bg-gray-700">
-            <Link to="/admin/dashboard">Dashboard</Link> {/* Updated */}
+            <Link to="/admin/dashboard">Dashboard</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link to="/admin/properties">Property Alert</Link> {/* Updated */}
+            <Link to="/admin/create">Create Property</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link to="/admin/favourite">My Favourite</Link> {/* Add route */}
+            <Link to="/admin/viewed">Agents</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link to="/admin/viewed">Recently Viewed</Link> {/* Add route */}
+            <Link to="/admin/properties">Property Alert</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link to="/admin/message">Messages</Link> {/* Add route */}
+            <Link to="/admin/favourite">My Favourite</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link to="/admin/settings">Account Settings</Link> {/* Updated */}
+            <Link to="/admin/message">Messages</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link to="/logout">Logout</Link>
+            <Link to="/admin/settings">Account Settings</Link>
+          </li>
+          <li className="p-4 hover:bg-gray-700">
+            <Link className="text-rose-600">Logout</Link>
           </li>
         </ul>
       </nav>

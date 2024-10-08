@@ -17,6 +17,7 @@ import Dashboard from "./pages/admin/Dashboard";
 import Agents from "./pages/admin/Agents";
 import Properties from "./pages/admin/Properties";
 import Settings from "./pages/admin/Settings";
+import CreateProperty from "./pages/admin/CreateProperty";
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="agents" element={<Agents />} />
               <Route path="settings" element={<Settings />} />
+              <Route path="create" element={<CreateProperty/>} />
               <Route path="properties" element={<Properties />} />
             </Route>
           </Routes>

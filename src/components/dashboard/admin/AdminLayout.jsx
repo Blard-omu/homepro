@@ -6,10 +6,10 @@ import { Outlet } from "react-router-dom";
 const AdminLayout = () => {
   return (
     <div className="flex justify-between min-h-screen">
-      <div className="z-30 fixed min-w-3/9">
+      <div className="z-30 min-w-3/9">
       <SideNav />
       </div>
-      <div className="pl-[25%] overflow-auto  p-6 bg-gray-100">
+      <div className="overflow-auto  p-6 bg-gray-100">
         <Outlet /> 
       </div>
     </div>

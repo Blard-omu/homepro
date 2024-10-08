@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../contexts/AuthContext";
-import UserAvatar from "../../helpers/UserAvatar";
 import { useNavigate } from "react-router-dom";
 
 const AdminSideNav = () => {
@@ -13,7 +12,12 @@ const AdminSideNav = () => {
     navigate("/")
   }
   return (
-    <aside className="w-64 text-[#1F1F1F] min-h-[50vh] bg-[#FFFEF9]">
+    <aside className=" text-[#1F1F1F] min-h-[50vh] bg-[#FFFEF9]">
+      <div className="flex justify-between items-center mb-4 full bg-slate-400">
+        <h1 className="text-[#1F1F1F] text-[28px] font-[Avenir LT Std]">
+          Admin Panel
+        </h1>
+      </div>
       <div className="p-4 text-2xl font-bold">Admin Panel</div>
       <nav>
         <ul>

@@ -5,11 +5,11 @@ import { Outlet } from "react-router-dom";
 
 const AdminLayout = () => {
   return (
-    <div className="flex justify-between min-h-screen">
-      <div className="z-30 min-w-3/9">
+    <div className="flex justify-between">
+      <div className="z-30">
       <SideNav />
       </div>
-      <div className="overflow-auto  p-6 bg-gray-100">
+      <div className="overflow-y-auto  p-6 bg-gray-100">
         <Outlet /> 
       </div>
     </div>

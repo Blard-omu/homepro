@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Listings from "./pages/Listings";
 import Menu from "./components/navs/Menu";
+import PropertyDetails from "./components/listing/PropertyDetail";
 import Blog from "./pages/Blog";
 import HelmetWrapper from "./components/helpers/HelmetAsync";
 import Footer from "./components/layout/Footer";
@@ -33,6 +34,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/listings" element={<Listings />} />
+            <Route path="/detail" element={<PropertyDetails />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/admin" element={<AdminLayout />}>
               <Route path="dashboard" element={<Dashboard />} />

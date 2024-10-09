@@ -22,7 +22,7 @@ const PropertyCard = ({
           className="rounded-2xl border border-slate-300 max-w-[400px] text-dark hover:shadow-lg shadow-primary-foreground hover:border-primary"
           key={_id}
         >
-          <div className="h-[396px] p-2 2xl:p-6 rounded-2xl">
+          <div className="min-h-[396px] p-2 2xl:p-6 rounded-2xl min-w-[400px]">
             <img src={image} alt="" className="w-full h-[245px]" />
             <div className=" flex text-[#1F1F1F] justify-between pt-2">
               <div className="flex">

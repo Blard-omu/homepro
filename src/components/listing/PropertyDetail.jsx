@@ -8,18 +8,46 @@ import { BsHouseDoor } from "react-icons/bs";
 import { FaTreeCity } from "react-icons/fa6";
 import { PiCityLight } from "react-icons/pi";
 import { IoLocationOutline } from "react-icons/io5";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const PropertyDetails = () => {
+  const [data, setData] = useState(null);
+  const { id } = useParams(); 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    console.log();
-  }, []);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`/property/${id}`);
+        if (response?.data?.success) {
+          setData(response.data.property);
+          console.log(data);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [id]);
+  if (loading) {
+    return <div className="flex justify-center items-center min-h-screen">Loading property details...</div>;
+  }
+
+  if (!data) {
+    return <div className="flex justify-center items-center min-h-screen">Property not found.</div>;
+  }
+
 
   return (
     <div className="container mx-auto p-4 md:p-8 max-w-[1300px] mt-20">
       {/* Title and Address */}
       <div className="mb-6">
-        <h1 className="text-2xl md:text-3xl font-bold">Mansion in Asokoro</h1>
-        <p className="">No 23, Ajayi Crowther Street</p>
+        {/* <h1 className="text-2xl md:text-3xl font-bold">{`${data.propertyType} in ${data.address.city}`}</h1> */}
+        <h1 className="text-2xl md:text-3xl font-bold">{data?.title}</h1>
+        <p className="">{`${data?.address?.street}, ${data?.address?.city}.`}</p>
       </div>
 
       {/* Property Images and Info */}
@@ -71,49 +99,48 @@ const PropertyDetails = () => {
         <div>
           <h1 className="font-bold text-xl md:text-[28px]">Property Details</h1>
           <ul className="flex flex-wrap space-x-4 items-center text-lg">
-            <li>₦ 455,000,000</li>
+            <li>₦ {data?.price?.toLocaleString("en-us")} </li>
             <li className="flex items-center gap-1">
               <span>
                 <PiBed />
               </span>{" "}
-              6 bed
+              {data?.bedrooms} bed
             </li>
             <li className="flex items-center gap-1">
               <span>
                 <PiBathtub />
               </span>
-              7 bath
+              {data?.bathrooms} bath
             </li>
             <li className="flex items-center gap-1">
               <span>
                 <RxSpaceBetweenVertically />
               </span>
-              7500 sq ft
+              {data?.sqm} sq ft
             </li>
           </ul>
         </div>
         <div>
           <h1 className="font-bold text-xl md:text-[28px]">Property Type</h1>
           <ul className="flex space-x-4 items-center text-lg">
-            <li>Single Family Home</li>
+            <li>{data?.propertyType}</li>
           </ul>
         </div>
-        <div>
-          <h1 className="font-bold text-xl md:text-[28px]">Year Built</h1>
-          <ul className="flex space-x-4 items-center text-lg">
-            <li>2023</li>
-          </ul>
-        </div>
+        {data?.year && (
+          <div>
+            <h1 className="font-bold text-xl md:text-[28px]">Year Built</h1>
+            <ul className="flex space-x-4 items-center text-lg">
+              <li>{data?.year}</li>
+            </ul>
+          </div>
+        )}
       </div>
 
       {/* Property Overview */}
       <div className="space-y-2">
         <h2 className="text-xl md:text-[28px] font-bold">Property Overview</h2>
         <p className="text-base md:text-lg">
-          Discover unparalleled luxury in this stunning Mansion located in the
-          heart of Asokoro, Abuja. This exquisite home offers 6 spacious
-          bedrooms, 7 modern bathrooms, and a sprawling 7,500 sq ft of living
-          space...
+         {data?.description}
         </p>
       </div>
 

@@ -19,6 +19,7 @@ import Agents from "./pages/admin/Agents";
 import Properties from "./pages/admin/Properties";
 import Settings from "./pages/admin/Settings";
 import CreateProperty from "./pages/admin/CreateProperty";
+import SearchPage from "./components/listing/SearchPage";
 
 const App = () => {
   return (
@@ -34,7 +35,8 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/listings" element={<Listings />} />
-            <Route path="/detail" element={<PropertyDetails />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/detail/:id" element={<PropertyDetails />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/admin" element={<AdminLayout />}>
               <Route path="dashboard" element={<Dashboard />} />

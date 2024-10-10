@@ -1,9 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Jumbotron from "../components/cards/Jumbotron";
 import PropertyCard from "../components/cards/PropertyCard";
 import { featureDb, listingsDb } from "../components/db/home";
+import axios from "axios";
+import Pagination from "../components/listing/Pagination";
+import { useNavigate } from "react-router-dom";
 
 const Listings = () => {
+  const [data, setData] = useState([...listingsDb]);
+  const [currentPage, setCurrentPage] = useState(1); 
+  const [totalPages, setTotalPages] = useState(1);
+  const [location, setLocation] = useState(""); 
+  const [bedrooms, setBedrooms] = useState(""); 
+  const [propertyType, setPropertyType] = useState(""); 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`/properties?page=${currentPage}`);
+        if (response?.data?.success) {
+          setData(response.data.properties);
+          setTotalPages(response.data.totalPages);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [currentPage]);
+
+  const handlePageChange = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(
+      `/search?location=${location}&propertyType=${propertyType}&bedrooms=${bedrooms}`
+    );
+  };
+  // console.log(data);
+  
+
   return (
     <div className="mt-16">
       <Jumbotron
@@ -13,46 +53,73 @@ const Listings = () => {
 
       <div className="w-full flex justify-center bg-accent">
         <div className="flex flex-col lg:flex-row gap-8 mt-12 max-w-[1280px]  px-4 lg:px-4 xl:px-0">
-          {/* Filters */}
-          <div className="w-full lg:w-auto max-w-full lg:max-w-[300px]  xl:max-w-[400px]">
+          {/* Search */}
+          <div className="w-full lg:w-auto max-w-full lg:max-w-[300px] xl:max-w-[400px]">
             <div className="space-y-4 p-8 bg-[#CCCCCC80]/50 rounded-2xl">
-              <select className="w-full p-2 rounded-[10px] bg-[#F6F8FA]">
-                <option className="text-dark text-lg font-semibold">Location</option>
-                <option className="text-dark text-lg font-semibold">Abuja</option>
-                <option className="text-dark text-lg font-semibold">Lagos</option>
-                <option className="text-dark text-lg font-semibold">Kano</option>
+              {/* Location Filter */}
+              <select
+                className="w-full p-2 rounded-[10px] bg-[#F6F8FA]"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+              >
+                <option value="">Location</option>
+                <option value="Abuja">Abuja</option>
+                <option value="Lagos">Lagos</option>
+                <option value="Kano">Kano</option>
+                <option value="Ogun">Ogun</option>
+                <option value="Ibadan">Ibadan</option>
+                <option value="Porharcourt">Porharcourt</option>
+                <option value="Enugu">Enugu</option>
+                <option value="Others">Others</option>
               </select>
-              <select className="w-full p-2 rounded-[10px] bg-[#F6F8FA]">
-                <option className="text-dark text-lg font-semibold">Bedrooms</option>
-                <option className="text-dark text-lg font-semibold">1 Bedroom</option>
-                <option className="text-dark text-lg font-semibold">2 Bedrooms</option>
-                <option className="text-dark text-lg font-semibold">3 Bedrooms</option>
-                <option className="text-dark text-lg font-semibold">4 Bedrooms</option>
-                {/* Add bedroom options */}
+
+              {/* Bedrooms Filter */}
+              <select
+                className="w-full p-2 rounded-[10px] bg-[#F6F8FA]"
+                value={bedrooms}
+                onChange={(e) => setBedrooms(e.target.value)}
+              >
+                <option value="">Bedrooms</option>
+                <option value="1">1 Bedroom</option>
+                <option value="2">2 Bedrooms</option>
+                <option value="3">3 Bedrooms</option>
+                <option value="4">4 Bedrooms</option>
+                <option value="5">5 Bedrooms</option>
+                <option value="6">6 Bedrooms</option>
+                <option value="7">7 Bedrooms</option>
+                <option value="8">8 Bedrooms</option>
               </select>
-              <select className="w-full p-2 rounded-[10px] bg-[#F6F8FA]">
-                <option className="text-dark text-lg font-semibold">Property type</option>
-                <option className="text-dark text-lg font-semibold">Bungalow</option>
-                <option className="text-dark text-lg font-semibold">Duplex</option>
-                <option className="text-dark text-lg font-semibold">Penthouse</option>
-                <option className="text-dark text-lg font-semibold">Studio</option>
-                {/* Add property type options */}
+
+              {/* Property Type Filter */}
+              <select
+                className="w-full p-2 rounded-[10px] bg-[#F6F8FA]"
+                value={propertyType}
+                onChange={(e) => setPropertyType(e.target.value)}
+              >
+                <option value="">Property type</option>
+                <option value="Bungalow">Bungalow</option>
+                <option value="Duplex">Duplex</option>
+                <option value="Penthouse">Penthouse</option>
+                <option value="Land">Land</option>
+                <option value="House">House</option>
+                <option value="Mansion">Mansion</option>
+                <option value="Villa">Villa</option>
+                <option value="Office">Office</option>
               </select>
-              <select className="w-full p-2 rounded-[10px] bg-[#F6F8FA]">
-                <option className="text-dark text-lg font-semibold">Price range</option>
-                <option className="text-dark text-lg font-semibold">10M - 30M</option>
-                <option className="text-dark text-lg font-semibold">30M - 50M</option>
-                <option className="text-dark text-lg font-semibold">50M - 100M</option>
-                <option className="text-dark text-lg font-semibold">100M - 300M</option>
-              </select>
-              <button className="w-full bg-primary-foreground rounded-full text-white p-2">
+
+              <button
+                className="w-full bg-primary-foreground rounded-full text-white p-2"
+                onClick={handleSubmit}
+              >
                 Search Property
               </button>
             </div>
 
             {/* Featured Properties */}
             <div className="mt-8 hidden lg:inline-block">
-              <h3 className=" text-xl sm:text-2xl font-semibold">Featured properties</h3>
+              <h3 className=" text-xl sm:text-2xl font-semibold">
+                Featured properties
+              </h3>
               <ul className="mt-4 space-y-8">
                 {featureDb.map((property) => (
                   <li key={property.id} className="flex space-x-4 items-center">
@@ -62,7 +129,9 @@ const Listings = () => {
                       className="w-[115px] h-[96px] object-cover rounded-[10px]"
                     />
                     <div>
-                      <h4 className="font-bold text-base sm:text-lg">{property.title}</h4>
+                      <h4 className="font-bold text-base sm:text-lg">
+                        {property.title}
+                      </h4>
                       <p className=" text-sm sm:text-base text-primary-foreground">
                         &#x20A6;{property.price.toLocaleString("en-us")}
                       </p>
@@ -76,38 +145,31 @@ const Listings = () => {
           {/* Property Listings */}
           <div className="w-full lg:w-2/3 max-w-[820px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-              {listingsDb.map((property) => (
+              {data.map((property) => (
                 <PropertyCard
                   key={property._id}
                   _id={property._id}
                   title={property.title}
                   image={property.image}
                   price={property.price}
-                  bed={property.bed}
-                  bath={property.bath}
-                  size={property.size}
+                  bed={property.bedrooms}
+                  bath={property.bathrooms}
+                  size={property.sqm}
                 />
               ))}
             </div>
-
             {/* Pagination */}
-            <div className="flex mt-8">
-              <nav>
-                <ul className="flex space-x-2">
-                  <li>
-                    <button className="px-3 py-1 border rounded-md">1</button>
-                  </li>
-                  <li>
-                    <button className="px-3 py-1 border rounded-md">2</button>
-                  </li>
-                  <li>
-                    <button className="px-3 py-1 border rounded-md">10</button>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+            <Pagination
+              totalPages={totalPages}
+              currentPage={currentPage}
+              handlePageChange={handlePageChange}
+            />
+            {/* Pagination ends */}
+
             <div className="mt-8 inline-block lg:hidden">
-            <h3 className=" text-xl sm:text-2xl font-semibold">Featured properties</h3>
+              <h3 className=" text-xl sm:text-2xl font-semibold">
+                Featured properties
+              </h3>
               <ul className="mt-4 space-y-8">
                 {featureDb.map((property) => (
                   <li key={property.id} className="flex space-x-4 items-center">
@@ -117,7 +179,9 @@ const Listings = () => {
                       className="w-[115px] h-[96px] object-cover rounded-[10px]"
                     />
                     <div>
-                      <h4 className="font-bold text-base sm:text-lg">{property.title}</h4>
+                      <h4 className="font-bold text-base sm:text-lg">
+                        {property.title}
+                      </h4>
                       <p className=" text-sm sm:text-base text-primary-foreground">
                         &#x20A6;{property.price.toLocaleString("en-us")}
                       </p>
@@ -126,7 +190,6 @@ const Listings = () => {
                 ))}
               </ul>
             </div>
-
           </div>
         </div>
       </div>

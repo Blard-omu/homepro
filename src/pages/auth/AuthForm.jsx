@@ -28,7 +28,7 @@ const AuthForm = () => {
           toast.success("Login successful! Redirecting...");
             const userRole = response.user.role;
             navigate(
-              location.state ? location.state.from : `${userRole === "admin" ? "/admin/dashboard" : "user"}`)
+              location.state ? location.state.from : `${userRole === "admin" ? "/admin/dashboard" : "/user"}`)
           closeModal(); 
 
         }

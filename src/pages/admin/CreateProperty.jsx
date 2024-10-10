@@ -123,9 +123,9 @@ const CreateProperty = () => {
 
   return (
     <div>
-      <div className="mt-16 lg:min-w-[1175px] min-h-[100vh] mt-md-4">
-        <div className="w-full">
-          <div className="p-3 my-2 h4 bg-light text-center font-bold">Create Property</div>
+      <div className="lg:w-[1228px] min-h-[100vh] flex justify-center items-center">
+        <div className="w-full lg:w-1/2 mx-auto">
+          <div className="p-3 my-2 h4 bg-light text-start font-bold">Create Property</div>
 
           <form className="w-full" onSubmit={handleFormSubmit}>
             {/* Image Upload Section */}
@@ -156,7 +156,7 @@ const CreateProperty = () => {
               )}
             </div>
 
-            <label className="w-2/12 flex items-center justify-between border hover:border-primary text-sm rounded-2xl mb-3 p-4 bg-slate-200">
+            <label className=" flex w-40 items-center justify-between text-primary border hover:border-primary text-sm rounded-2xl mb-3 p-4 bg-slate-200">
               <IoImages /> Upload images
               <input
                 type="file"
@@ -170,6 +170,8 @@ const CreateProperty = () => {
 
             {/* Property Fields */}
             <div className="form-group">
+              <label>Title<span className="text-primary">*</span></label>
+              <div className="">
               <input
                 type="text"
                 className="form-control mb-3"
@@ -178,9 +180,12 @@ const CreateProperty = () => {
                 onChange={(e) => setTitle(e.target.value)}
                 required
               />
+              </div>
             </div>
 
             <div className="form-group">
+              <label>Description<span className="text-primary">*</span></label>
+              <div className="">
               <textarea
                 className="form-control mb-3"
                 placeholder="Property description"
@@ -188,44 +193,52 @@ const CreateProperty = () => {
                 onChange={(e) => setDescription(e.target.value)}
                 required
               />
+              </div>
             </div>
 
             <div className="form-group">
+            <label>Price<span className="text-primary">*</span></label>
+              <div className="">
               <input
                 type="number"
                 className="form-control mb-3"
                 placeholder="Price"
                 value={price}
+                min={20000000}
                 onChange={(e) => setPrice(e.target.value)}
                 required
               />
+              </div>
             </div>
 
-            <div className="row">
-              <div className="">
+            <div className="w-full flex justify-between">
+              <div className="w-[31%]">
                 <input
                   type="number"
-                  className="form-control mb-3"
+                  className="form-control mb-3 w-full"
                   placeholder="Bedrooms"
+                  min={1}
                   value={bedrooms}
                   onChange={(e) => setBedrooms(e.target.value)}
                 />
               </div>
-              <div className="">
+              <div className="w-[31%]">
                 <input
                   type="number"
-                  className="form-control mb-3"
+                  className="form-control mb-3 w-full"
                   placeholder="Bathrooms"
+                  min={1}
                   value={bathrooms}
                   onChange={(e) => setBathrooms(e.target.value)}
                 />
               </div>
-              <div className="">
+              <div className="w-[31%]">
                 <input
                   type="number"
-                  className="form-control mb-3"
-                  placeholder="Sqm"
+                  className="form-control mb-3 w-full"
+                  placeholder="Square Meters"
                   value={sqm}
+                  min={1000}
                   onChange={(e) => setSqm(e.target.value)}
                 />
               </div>
@@ -253,6 +266,7 @@ const CreateProperty = () => {
                 />
               </div>
               <div className="">
+                <label className="block">Select State</label>
                 <select
                   className="form-select mb-3"
                   value={state}
@@ -269,6 +283,7 @@ const CreateProperty = () => {
             </div>
 
             <div className="form-group">
+            <label className="block">Property Type</label>
               <select
                 className="form-select mb-3"
                 value={propertyType}
@@ -324,13 +339,14 @@ const CreateProperty = () => {
 
               {/*Map throught agents array and setAgentId */}
               <div className="form-group">
+                <label className="block">Select Agent</label>
               <select
                 className="form-select mb-3"
                 value={agentId}
                 onChange={(e) => setAgentId(e.target.value)}
                 required
               >
-                <option value="" disabled>Select an Agent</option>
+                {/* <option value="" disabled>Select an Agent</option> */}
                 {agents.length > 0 && agents.map(agent => (
                   <option key={agent._id} value={agent._id}>
                     {agent.userName}
@@ -341,7 +357,7 @@ const CreateProperty = () => {
 
             </div>
 
-            <button type="submit" className="btn btn-success mt-3" disabled={loading}>
+            <button type="submit" className="bg-primary text-white rounded-full py-3 px-6 my-3" disabled={loading}>
               {loading ? "Creating..." : "Create Property"}
             </button>
           </form>

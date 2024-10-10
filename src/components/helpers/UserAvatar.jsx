@@ -1,58 +1,10 @@
-// import React from "react";
-// import { useNavigate } from "react-router-dom";
-// import avatar from "../../assets/icons/humprofile.png";
-// import { useAuth } from "../../contexts/AuthContext";
-
-// const UserAvatar = () => {
-//   const navigate = useNavigate();
-//   const { logout } = useAuth();
-
-//   // Handle select change to navigate to the selected route
-//   const handleNavigation = (e) => {
-//     const selectedOption = e.target.value;
-    
-//     // Based on the option selected, navigate to the respective route
-//     switch (selectedOption) {
-//       case "Dashboard":
-//         navigate("/admin/dashboard");
-//         break;
-//       case "Properties":
-//         navigate("/admin/properties");
-//         break;
-//       case "Settings":
-//         navigate("/admin/settings");
-//         break;
-//       case "Logout":
-//         logout();
-//         break;
-//       default:
-//         break;
-//     }
-//   };
-
-//   return (
-//     <div className="flex justify-center items-center">
-//       <img src={avatar} alt="User Avatar" />
-//       <div>
-//         <select className="p-2 border rounded-lg" onChange={handleNavigation}>
-//           <option >Dashboard</option>
-//           <option value="Properties">Properties</option>
-//           <option value="Settings">Settings</option>
-//           <option value="Logout">Logout</option>
-//         </select>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default UserAvatar;
-
 
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import userIcon from "../../assets/icons/humprofile.png";
 import { IoChevronDownOutline, IoChevronUpOutline } from "react-icons/io5";
 import { useAuth } from "../../contexts/AuthContext";
+import { VscAccount } from "react-icons/vsc";
 
 
 const UserAvatar = () => {
@@ -125,13 +77,14 @@ const UserAvatar = () => {
   };
 
   return (
-    <div className="relative user-avatar-dropdown z-[999]">
-      {/* Avatar Section */}
+    <div className="relative user-avatar-dropdown">
       <div
-        className="flex items-center cursor-pointer rounded-2xl p-2 hover:bg-blue-100"
+        className="flex items-center cursor-pointer p-2 "
         onClick={toggleDropdown}
       >
-        <img src={userIcon} alt="User Avatar" className="w-[40px] h-[40px]" />
+        <div className="bg-primary text-white p-1 rounded-full">
+        <VscAccount size={24} className="text-white" />
+        </div>
         <div className="ml-2">
           {isOpen ? <IoChevronUpOutline /> : <IoChevronDownOutline />}
         </div>
@@ -139,7 +92,7 @@ const UserAvatar = () => {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0 top-full z-50 mt-2 w-[160px] rounded-lg bg-white shadow-xl">
+        <div className="absolute right-0 top-full z-50 mt-2 w-[160px] rounded-2xl bg-white shadow-xl border">
           <ul className="py-2 text-sm text-primary-200">
             <li
               className="px-4 py-2 cursor-pointer hover:bg-primary/50 hover:text-white"

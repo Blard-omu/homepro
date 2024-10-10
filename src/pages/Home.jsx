@@ -7,7 +7,6 @@ import OurAgents from "@/components/home/OurAgents";
 import BlogComponent from "@/components/home/BlogComponent";
 import TestimonialWrapper from "@/components/home/TestimonialWrapper";
 import Cta from "@/components/home/cta";
-import Footer from "@/components/layout/Footer";
 
 const Home = () => {
   return (

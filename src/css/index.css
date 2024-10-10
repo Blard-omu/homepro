@@ -23,12 +23,12 @@
  } 
   
   /* Hide scrollbar for Chrome, Safari, and Edge */
-.modal-content::-webkit-scrollbar {
+.modal-content::-webkit-scrollbar, .::-webkit-scrollbar {
     display: none;
   }
-  
+  no-scroll-bar
   /* Hide scrollbar for Firefox */
-  .modal-content {
+  .modal-content, .no-scroll-bar {
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
   }

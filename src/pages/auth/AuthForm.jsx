@@ -13,12 +13,10 @@ const AuthForm = () => {
   const navigate = useNavigate();
   const { closeModal } = useModal();
 
-  // Toggle between Login and Register
   const toggleForm = () => {
     setIsLogin(!isLogin);
   };
 
-  // Handle form submission
   const handleFormSubmit = async (formData) => {
     setLoading(true);
     try {
@@ -28,7 +26,9 @@ const AuthForm = () => {
         
         if (response.success) {
           toast.success("Login successful! Redirecting...");
-          navigate("/admin/dashboard"); 
+            const userRole = response.user.role;
+            navigate(
+              location.state ? location.state.from : `${userRole === "admin" ? "/admin/dashboard" : "user"}`)
           closeModal(); 
 
         }

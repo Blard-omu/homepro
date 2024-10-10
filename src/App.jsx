@@ -21,6 +21,7 @@ import UserDashboard from "./pages/user/UserDashboard";
 import AdminProperties from "./pages/admin/AdminProperties";
 
 
+import SearchPage from "./components/listing/SearchPage";
 
 const App = () => {
   const { PrivateRoutes, AdminRoutes} = useAuth();
@@ -35,8 +36,9 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/listings" element={<Listings />} />
-        <Route path="/detail" element={<PropertyDetails />} />
+        <Route path="/detail/:id" element={<PropertyDetails />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/search" element={<SearchPage/>} />
         <Route path="/*" element={<PageNotFound />} />
 
         <Route path="/" element={<PrivateRoutes />}>

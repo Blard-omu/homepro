@@ -76,7 +76,7 @@ const AuthProvider = ({ children }) => {
         });
 
         // Save signup data to local storage
-        localStorage.setItem("auth", JSON.stringify(data));
+        // localStorage.setItem("auth", JSON.stringify(data));
       }
 
       return data;

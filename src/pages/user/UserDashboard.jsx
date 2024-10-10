@@ -18,9 +18,9 @@ const UserDashboard = () => {
 
   return (
     <div className="lg:min-w-[1128px] lg:max-w-[1440px] min-h-[100vh]">
-      <div className="w-full flex justify-between items-center py-6 bg-white">
+      <div className="w-full flex justify-between items-center py-6 bg-white px-4">
         <div className="flex justify-between w-9/12">
-          <h1 className="text-[#000000] font-bold text-xl">Dashboard</h1>
+          <h1 className="text-[#000000] font-bold text-xl">User Dashboard</h1>
           <form className="lg:w-1/3 ">
             <input
               type="text"
@@ -33,7 +33,7 @@ const UserDashboard = () => {
       </div>
 
       {/* Welcome Section */}
-      <div className="mt-16 bg-[#FFFEF9] p-6 flex items-center space-x-6 ">
+      <div className="bg-[#FFFEF9] p-6 flex items-center space-x-6 ">
         <div className="w-[609px] h-[279px] flex items-center space-x-6">
           {/* Text Section */}
           <div className="w-1/2">
@@ -42,7 +42,7 @@ const UserDashboard = () => {
               Welcome <span className="text-primary">{username ? username : "Guest"}</span> 
             </h2>
             <p className="text-gray-700 font-[Avenir LT Std] text-lg leading-6">
-              Manage your property searches, saved listings, and more from your
+              It's great to have you on board <b className="text-primary font-semibold">{username ? username : "Guest"}</b>. Manage your property searches, saved listings, and more from your
               personalized dashboard. 
             </p>
           </div>
@@ -89,72 +89,9 @@ const UserDashboard = () => {
         </div>
       </div>
 
-      <div className="mt-7 w-full min-h-full flex justify-start items-center">
-        <div className="font-[Avenir LT Std] text-[#1F1F1FD9]">
-          <h2 className="text[24px] text-[#000000] font-[Avenir LT Std] w-[700px]">
-            Properties purchased so far
-          </h2>
-          <p className="text-[18px] w-[600px]">
-            Here are the properties you have purchased, review them so far.
-          </p>
-        </div>
-      </div>
+     
 
-      <div className="bg-[#FFFEF9] w-full max-w-[1125px] h-[604px] mt-7 p-6 overflow-hidden">
-        <div className="bg-[#F8F3DD] flex flex-row justify-between items-center w-full h-[80px] px-6 text-[18px] text-[#000000]">
-          <span className="font-semibold">Listing Title</span>
-          <span className="font-semibold">Date Purchased</span>
-          <span className="font-semibold">Status</span>
-        </div>
-
-        <div className="flex flex-row justify-between items-start w-full h-[107px] mt-4 p-4 bg-white shadow-md rounded-md">
-          <div className="flex flex-row gap-4">
-            <img
-              src={image2}
-              alt="Standard Bungalow"
-              className="w-[94px] h-[75px] rounded-md"
-            />
-            <div className="flex flex-col justify-between">
-              <h2 className="text-[18px] text-[#000000] font-[Avenir LT Std]">
-                Standard Bungalow
-              </h2>
-              <p className="text-[#000000] text-[16px] leading-[19.2px]">
-                No 3, Jaja Crescent, Gwarimpa, Abuja.
-              </p>
-              <span className="text-[14px] font-[Avenir LT Std] text-[#9DA008] leading-[16.8px]">
-                ₦95,000,000
-              </span>
-            </div>
-          </div>
-
-          <div className="flex flex-row gap-2.5 justify-between text-right">
-            <span className="text-[#000000] text-[16px] leading-[19.2px]">
-              31st July, 2024
-            </span>
-            <span className="text-[#E1772A33] font-medium">Processing</span>
-          </div>
-        </div>
-
-        <div className="flex flex-row justify-between items-start p-4 bg-white shadow-md rounded-md">
-          <div className="flex flex-row gap-4">
-            <img
-              src={image3}
-              alt="Hotel"
-              className="w-[94px] h-[75px] rounded-md"
-            />
-            <div className="flex flex-col justify-between">
-              <h2 className="text-lg font-semibold">Hotel</h2>
-              <p className="text-gray-600 text-sm">No 1, Ogeneruwe Gra, Benin.</p>
-              <span className="text-xl font-bold text-gray-800">₦500,000,000</span>
-            </div>
-          </div>
-
-          <div className="flex flex-col justify-between text-right">
-            <span className="text-gray-500">19th June, 2024</span>
-            <span className="text-yellow-600 font-medium">Awaiting approval</span>
-          </div>
-        </div>
-      </div>
+      
     </div>
   );
 };

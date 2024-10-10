@@ -1,6 +1,6 @@
 import React from "react";
 import SideNav from "./AdminSideNav";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import UserAvatar from "../../helpers/UserAvatar";
 import logo from "../../../assets/icons/home.png"
 
@@ -14,10 +14,10 @@ const AdminLayout = () => {
       <div className="w-full flex flex-col bg-gray-100">
         <div className="flex justify-between items-center py-6 bg-white fixed top-0 z-40 w-full">
           <div className="w-1/5 flex justify-center items-center">
-            <div className="flex items-baseline">
+            <Link to="/" className="flex items-baseline">
             <img src={logo} alt="" />
             <span className="hidden md:block font-pacifico text-primary">HomePro</span>
-            </div>
+            </Link>
 
           </div>
           <div className="w-4/5 flex justify-between items-center px-4">

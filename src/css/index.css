@@ -23,7 +23,7 @@
  } 
   
   /* Hide scrollbar for Chrome, Safari, and Edge */
-.modal-content::-webkit-scrollbar, .::-webkit-scrollbar {
+.modal-content::-webkit-scrollbar, .no-scroll-bar::-webkit-scrollbar {
     display: none;
   }
   no-scroll-bar

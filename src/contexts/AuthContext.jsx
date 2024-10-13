@@ -13,7 +13,8 @@ const AuthProvider = ({ children }) => {
   });
 
   // axios config
-  axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+  // axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+  axios.defaults.baseURL = "https://homepro-fac9.onrender.com/api";
 
   // Update axios headers when auth changes
   useEffect(() => {

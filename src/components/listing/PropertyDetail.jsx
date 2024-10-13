@@ -10,6 +10,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { useParams } from "react-router-dom";
 import noProfile from "../../assets/images/NoProfile.jpg";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const PropertyDetails = () => {
   const [data, setData] = useState(null);
@@ -120,25 +121,26 @@ const PropertyDetails = () => {
       <div className="flex flex-col md:flex-row lg:max-h-[465px] w-full gap-3 lg:gap-5">
         {/* Image Grid (Bento layout) */}
         <div className="grid grid-cols-2 gap-3 lg:grid-cols-2 lg:gap-5 w-full lg:w-[42%] lg:max-h-[465px] lg:grid-rows-2">
-          {imagesToShow.length > 0 && imagesToShow.slice(0, 4).map((img, index) => (
-            <div
-              key={index}
-              className="relative w-full h-full lg:max-h-[220px] cursor-pointer"
-              onClick={() => openModal(index)}
-            >
-              <img
-                src={img.url || null}
-                alt={`Image ${index + 1}`}
-                className="w-full h-full rounded-2xl object-cover"
-              />
-              {/* Display +X on the last image */}
-              {index === 3 && remainingImagesCount > 0 && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-2xl text-white font-bold text-2xl">
-                  +{remainingImagesCount}
-                </div>
-              )}
-            </div>
-          ))}
+          {imagesToShow.length > 0 &&
+            imagesToShow.slice(0, 4).map((img, index) => (
+              <div
+                key={index}
+                className="relative w-full h-full lg:max-h-[220px] cursor-pointer"
+                onClick={() => openModal(index)}
+              >
+                <img
+                  src={img.url || null}
+                  alt={`Image ${index + 1}`}
+                  className="w-full h-full rounded-2xl object-cover"
+                />
+                {/* Display +X on the last image */}
+                {index === 3 && remainingImagesCount > 0 && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-2xl text-white font-bold text-2xl">
+                    +{remainingImagesCount}
+                  </div>
+                )}
+              </div>
+            ))}
         </div>
 
         {/* Main Property Image */}
@@ -147,7 +149,7 @@ const PropertyDetails = () => {
           onClick={() => openModal(4)}
         >
           <img
-            src={imagesToShow.url && imagesToShow[4].url || noImage}
+            src={imagesToShow[0].url || noImage}
             alt="Main Image"
             className="w-full h-full rounded-xl object-cover"
           />
@@ -257,26 +259,29 @@ const PropertyDetails = () => {
                 <IoLocationOutline />
               </p>
               <p>
-                <strong>Location and Neighborhood:</strong> {data.propertyFeatures.location}
+                <strong>Location and Neighborhood:</strong>{" "}
+                {data.propertyFeatures.location}
               </p>
             </li>
             <li className="flex gap-1">
               <p className="text-2xl mt-1">
                 <BsHouseDoor />
               </p>
-              <strong>Interior Features:</strong> {data.propertyFeatures.interior}
+              <strong>Interior Features:</strong>{" "}
+              {data.propertyFeatures.interior}
             </li>
             <li className="flex gap-1">
               <p className="text-2xl mt-1">
                 <FaTreeCity />
               </p>{" "}
-              <strong>Exterior Features:</strong>  {data.propertyFeatures.area}
+              <strong>Exterior Features:</strong> {data.propertyFeatures.area}
             </li>
             <li className="flex gap-1">
               <p className="text-2xl mt-1">
                 <PiCityLight />
               </p>{" "}
-              <strong>Community Amenities:</strong>{data.propertyFeatures.security}
+              <strong>Community Amenities:</strong>
+              {data.propertyFeatures.security}
             </li>
           </ul>
           {data.keyFeatures && (
@@ -323,9 +328,11 @@ const PropertyDetails = () => {
             )
           )}
 
-          <button className="bg-primary-foreground text-white py-2 px-4 rounded-full w-full max-w-[340px]">
-            Schedule a Viewing
-          </button>
+          <Link to="https://calendly.com/blardcodes/30min" target="_blank">
+            <button className="bg-primary-foreground text-white py-2 px-4 rounded-full w-full max-w-[340px]">
+              Schedule a Viewing
+            </button>
+          </Link>
         </div>
       </div>
     </div>

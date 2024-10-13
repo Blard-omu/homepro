@@ -8,7 +8,7 @@ import Teams from '../components/Teams'
 
 const About = () => {
   return (
-    <div className='mt-20'>
+    <div className='mt-20 mb-8'>
       {/* <Jumbotron/> */}
       <AbHero/>
       <div className="space-y-12 lg:space-y-14 xl:space-y-[85px] px-2 md:px-4 lg:px-[75px] xl:px-[95px] 2xl:px-[114px]">

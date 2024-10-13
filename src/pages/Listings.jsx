@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Jumbotron from "../components/cards/Jumbotron";
 import PropertyCard from "../components/cards/PropertyCard";
-import { featureDb, listingsDb } from "../components/db/home";
+import { featureDb } from "../components/db/home";
 import axios from "axios";
 import Pagination from "../components/listing/Pagination";
 import { useNavigate } from "react-router-dom";
 
 const Listings = () => {
-  const [data, setData] = useState([...listingsDb]);
+  const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1); 
   const [totalPages, setTotalPages] = useState(1);
   const [location, setLocation] = useState(""); 
@@ -145,12 +145,12 @@ const Listings = () => {
           {/* Property Listings */}
           <div className="w-full lg:w-2/3 max-w-[820px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-              {data.map((property) => (
+              {data.length > 0 && data.map((property) => (
                 <PropertyCard
                   key={property._id}
                   _id={property._id}
                   title={property.title}
-                  image={property.image}
+                  image={property.images.length > 0 && property.images[0].url}
                   price={property.price}
                   bed={property.bedrooms}
                   bath={property.bathrooms}

@@ -117,18 +117,24 @@ const Menu = () => {
                 </NavLink>
               </li>
               <div className="md:hidden flex gap-5 mb-8">
-                <button
-                  className="md:block text-primary px-4 py-2 rounded-full border border-primary hover:text-secondary hover:bg-primary font-medium text-sm transition-all ease-in-out duration-300"
-                  onClick={handleOpenModal}
-                >
-                  Get Started
-                </button>
+                {auth && auth.user ? (
+                  <UserAvatar />
+                ) : (
+                  <button
+                    className="md:block text-primary px-4 py-2 rounded-full border border-primary hover:text-secondary hover:bg-primary font-medium text-sm transition-all ease-in-out duration-300"
+                    onClick={handleOpenModal}
+                  >
+                    Get Started
+                  </button>
+                )}
               </div>
             </ul>
           </div>
           <div className="flex items-center">
             {auth && auth.user ? (
-              <UserAvatar />
+              <div className="hidden md:block">
+                <UserAvatar />
+              </div>
             ) : (
               <button
                 className="hidden md:block text-primary px-4 py-2 rounded-full border border-primary hover:text-secondary hover:bg-primary font-medium text-sm transition-all ease-in-out duration-300"

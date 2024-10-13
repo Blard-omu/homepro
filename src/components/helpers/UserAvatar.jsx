@@ -92,7 +92,7 @@ const UserAvatar = () => {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0 top-full z-50 mt-2 w-[160px] rounded-2xl bg-white shadow-xl border">
+        <div className="absolute -right-12 md:right-0 top-full z-50 mt-2 w-[160px] rounded-2xl bg-white shadow-xl border">
           <ul className="py-2 text-sm text-primary-200">
             <li
               className="px-4 py-2 cursor-pointer hover:bg-primary/50 hover:text-white"

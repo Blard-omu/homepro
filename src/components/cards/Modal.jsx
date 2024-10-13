@@ -12,8 +12,7 @@ const Modal = ({ isOpen = false, onClose, children }) => {
       aria-hidden={!isOpen}
     >
       <div
-        className={`modal-content bg-white w-full mx-auto md:w-10/12 lg:w-1/2 p-2 md:p-6 md:rounded-2xl shadow-lg transform transition-transform duration-500 ease-in-out max-h-screen lg:max-h-[650px] overflow-y-auto ${modalVisibilityClass}`}
-        // style={{ maxHeight: '100vh' }}
+        className={`modal-content bg-white w-[94%] mx-auto md:w-10/12 lg:w-1/2 p-2 md:p-6 rounded-xl md:rounded-2xl shadow-lg transform transition-transform duration-500 ease-in-out max-h-screen lg:max-h-[650px] overflow-y-auto ${modalVisibilityClass}`}
       >
         {/* Close button */}
         <button

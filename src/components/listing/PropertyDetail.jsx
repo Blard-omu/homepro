@@ -247,6 +247,14 @@ const PropertyDetails = () => {
         <p className="text-base md:text-lg">{data?.description}</p>
       </div>
 
+      <div className="">
+      <Link to={`/admin/update/${id}`} target="_blank">
+            <button className="bg-primary-foreground text-white py-2 px-4 rounded-full w-full max-w-[340px]">
+              Update
+            </button>
+          </Link>
+      </div>
+
       <div className="flex flex-col lg:flex-row py-10 justify-between">
         {/* Property Features */}
         <div className="max-w-full lg:max-w-[65%] space-y-2">
@@ -333,6 +341,7 @@ const PropertyDetails = () => {
               Schedule a Viewing
             </button>
           </Link>
+          
         </div>
       </div>
     </div>

@@ -22,6 +22,7 @@ import AdminProperties from "./pages/admin/AdminProperties";
 
 
 import SearchPage from "./components/listing/SearchPage";
+import UpdateProperty from "./pages/admin/UpdateProperty";
 
 const App = () => {
   const { PrivateRoutes, AdminRoutes} = useAuth();
@@ -51,6 +52,7 @@ const App = () => {
               <Route path="agents" element={<Agents />} />
               <Route path="settings" element={<Settings />} />
               <Route path="create" element={<CreateProperty />} />
+              <Route path="update/:id" element={<UpdateProperty/>} />
               <Route path="properties" element={<AdminProperties />} />
             </Route>
           </Route>
